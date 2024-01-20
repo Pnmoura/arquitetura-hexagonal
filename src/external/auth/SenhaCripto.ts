@@ -6,4 +6,8 @@ export default class SenhaCripto implements ProvedorCriptografia{
         const salt = bcrypt.genSaltSync(10)
         return bcrypt.hashSync(texto, salt)
     }
+
+    comparar(senha: string, senhaCriptografada: string): boolean {
+        return bcrypt.compareSync(senha, senhaCriptografada)
+    }
 }
